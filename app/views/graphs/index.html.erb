@@ -18,35 +18,39 @@
       <div class="col-md-4" id="right">
         <div class="jumbotron">
           <div class="jumbotron-contents">
+              <%= link_to "Add New Sales", new_graph_path, class: "btn btn-small btn-rounded" %><br>
               <h1>Past Weekly Sales Stats</h1>
               <p>
                 <% @graphs.each do |graph| %>
-                <h3><strong><%= graph.title %></strong></h3>
-                <i>Submitted On:</i>
-                <%= (graph.created_at) %>
-                <br><br>
-                <strong>Sales Goal:</strong>
-                <%= number_to_currency(graph.sales_goal) %>
-                <br>
-                <strong>Actual Sales:</strong>
-                <%= number_to_currency(graph.sales) %>
-                <br>
-                <strong>Difference:</strong>    
-                <%= number_to_currency(graph.difference) %>
-                <br>
-                <strong>Closing Ratio:</strong>    
-                <%= number_to_percentage(graph.ratio, precision: 0) %>    
-                <br><br>
-                <b>How You Did:</b>
-                <%= sales_success(graph) %> 
-                <br>
-                <%= link_to "See More", graph_path(graph) %>            
-                <hr>                 
-                <% end %>  
-              </p>
+                <div class="container">
+                  <h3><strong><%= graph.title %></strong></h3>
+                  <i>Submitted On:</i>
+                  <%= (graph.created_at) %>
+                  <br><br>
+                  <strong>Sales Goal:</strong>
+                  <%= number_to_currency(graph.sales_goal) %>
+                  <br>
+                  <span class="<%= graph_status(graph.sales) %>">
+                  <strong>Actual Sales:</strong>
+                  <%= number_to_currency(graph.sales) %>
+                  <br>
+                  <strong>Difference:</strong>    
+                  <%= number_to_currency(graph.difference) %>
+                  <br>
+                  <strong>Closing Ratio:</strong>    
+                  <%= number_to_percentage(graph.ratio, precision: 0) %>    
+                  <br><br>
+                  <b>How You Did:</b>
+                  <%= sales_success(graph) %> 
+                  <br>
+                  <%= link_to "See More", graph_path(graph) %>            
+                  <hr></span>                 
+                  <% end %>  
+                </p>
             </div>
-          <div>
-            
+          </div>
+        </div>    
+
         </div>
       </div>
     </div>

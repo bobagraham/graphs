@@ -2,7 +2,6 @@ class GraphsController < ApplicationController
 
 def index
 	@graphs = Graph.all.order("id DESC").all
-
 end
 
 def new
@@ -17,7 +16,6 @@ def create
 	render 'new'
 end
 end
-
 
 def show
 	@graph = Graph.find(params[:id])
@@ -35,6 +33,11 @@ def update
 	redirect_to @graph
 end
 
+def destroy
+	@graph = Graph.find(params[:id])
+	@graph.destroy
+	redirect_to root_path
+end
 
 private
 def graph_params

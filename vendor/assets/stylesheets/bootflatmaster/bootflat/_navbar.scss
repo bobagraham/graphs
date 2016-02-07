@@ -41,11 +41,11 @@ $navbar-inverse-background-color:            $black !default;
       }
       & .navbar-text,
       & .navbar-nav > li > a {
-          color: darken($navbar-background-color, 15%);
+          color: white;
       }
       & .navbar-nav > li > a:hover,
       & .navbar-nav > li > a:focus {
-          color: $navbar-font-color;
+          color: darken($navbar-background-color, 15%);
       }
       & .navbar-nav > .active > a,
       & .navbar-nav > .active > a:hover,
