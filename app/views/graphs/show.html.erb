@@ -5,28 +5,27 @@
     <div class="jumbotron">
       	<div class="jumbotron-contents">
       		<div class="row">
-	      		<div class="col-md-6">
+	      		<div class="col-md-12">
 		          <h1><strong><%= @graph.title %> Sales</strong></h1>
 		          <h2>
 		          <div class="label label-primary">Sales Goal:&nbsp&nbsp&nbsp&nbsp&nbsp</div>
-		          <br><br>
+		          <%= number_to_currency(@graph.sales_goal) %><br><br>
 		          <div class="label label-primary">Actual Sales:&nbsp&nbsp</div>
-		          <br><br>
+		          <%= number_to_currency(@graph.sales) %><br><br>
 		          <div class="label label-primary">Difference:&nbsp&nbsp&nbsp&nbsp&nbsp</div>
-		          <br><br>
+		           <%= number_to_currency(@graph.difference) %><br><br>
 		          <div class="label label-primary">Closing Ratio:</div>
+		          <%= number_to_percentage(@graph.ratio, precision: 0) %><br><br>  
 		          </h2> 
-	    		</div>
-
-		    	<div class="col-md-6">
-				<h1><strong><br></strong></h1>
-		          <h2>
-		          <%= number_to_currency(@graph.sales_goal) %>
-		          <br><br>
-		          <%= number_to_currency(@graph.sales) %> 
-		          </h2> 
-		          <br><br><br>
+		         <hr>
+                <b>How You Did:</b>
+                <%= sales_success(@graph) %> 
+                <br>
+                <hr>     
+		          <br>
 		          <%= link_to "Edit", edit_graph_path, class: "btn btn-small btn-info" %>
+		          <%= link_to "Delete", edit_graph_path, class: "btn btn-small btn-danger" %>		          
+				  <%= link_to "Back to Main", root_path, class: "btn btn-small btn-primary pull-right" %>            
 		        </div>  
 	     	</div>
 	    </div>

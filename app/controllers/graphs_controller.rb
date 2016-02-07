@@ -24,6 +24,15 @@ def show
 end
 
 def edit
+	@graph = Graph.find(params[:id])
+end
+
+def update
+	@graph = Graph.find(params[:id])
+	graph_params = params.require(:graph).			   
+	permit(:title, :sales, :sales_goal)
+	@graph.update(graph_params)
+	redirect_to @graph
 end
 
 
