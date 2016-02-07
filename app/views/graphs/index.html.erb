@@ -1,0 +1,34 @@
+<%= render 'layouts/header' %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="jumbotron">
+      <div class="jumbotron-contents">
+        <h1>Here Are All Our Sales Stats</h1>
+        <p>
+          <% @graphs.each do |graph| %>
+          <h3><strong><%= graph.title %></strong></h3>
+          <p>
+          <strong>Sales Goal:</strong>
+          <%= number_to_currency(graph.sales_goal) %>
+          <br>
+          <strong>Actual Sales:</strong>
+          <%= number_to_currency(graph.sales) %>
+          <br>
+          <strong>Difference:</strong>    
+          <%= number_to_currency(graph.difference) %>
+          <br>
+          <strong>Closing Ratio:</strong>    
+          <%= number_to_percentage(graph.ratio, precision: 0) %>    
+          <br>
+          <b>How You Did:</b>
+          <%= sales_success(graph) %> 
+          <br>
+          <%= link_to "See More", graph_path(graph) %>            
+          <hr>                 
+          <% end %>  
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

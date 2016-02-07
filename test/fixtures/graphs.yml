@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  sales: 9.99
+  sales_goal: 9.99
+
+two:
+  title: MyString
+  sales: 9.99
+  sales_goal: 9.99
