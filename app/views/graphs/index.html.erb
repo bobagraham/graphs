@@ -7,9 +7,10 @@
       <div class="col-md-8" id="left">
         <div class="jumbotron">
           <div class="jumbotron-contents">
-            <h1>This Can Be a Giant Graph</h1>
+            <h1>Your Total Sales</h1>
             <p>
-              The contents will be all historical sales
+            <div id="highChartContainer" style="min-width: 450px; height: 450px; margin: 0 auto"></div>
+
             </p>
           </div>
         </div>
@@ -58,3 +59,42 @@
   </div>
 </div>    
 
+
+
+<script type='text/javascript'>
+$(document).ready(function(){
+    chart = new Highcharts.Chart({
+    chart: {
+        renderTo: 'highChartContainer',
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false
+    },
+    xAxis: {
+    title: { text: 'Week' },
+    },
+
+    yAxis: {
+    title: { text: 'Dollars' },
+    },
+
+    title: {
+        text: ''
+    },
+    series: [{
+      name: "Sales",
+      type: 'line',     
+      data: <%= @charts.map do |chart|
+    [chart.sales.to_f]
+    end.to_json.html_safe %>
+    },
+    {
+      name: "Goal",
+      type: 'line',     
+      data: <%= @charts.map do |chart|
+    [chart.sales_goal.to_f]
+    end.to_json.html_safe %>
+    }]
+  });
+});
+</script>

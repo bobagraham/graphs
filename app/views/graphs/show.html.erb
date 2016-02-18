@@ -19,7 +19,9 @@
 		          </h2> 
 		         <hr>
                 <b>How You Did:</b>
+                <span class="<%= graph_status(@graph.sales) %>">
                 <%= sales_success(@graph) %> 
+            	</span>
                 <br>
                 <hr>     
 		          <br>
@@ -36,7 +38,9 @@
   <div class="col-md-7">
     <div class="jumbotron">
       <div class="jumbotron-contents graph">
-          <h1><strong>Graph Of Sales</h1>
+          <h1><strong>Your Sales Performance</h1>
+            <div id="showhighChartContainer" style="min-width: 350px; height: 350px; margin: 0 auto"></div>
+
           <br>
           <br>
           <br>
@@ -46,3 +50,31 @@
   </div>
 
 </div>
+
+
+<script type='text/javascript'>
+$(document).ready(function(){
+  new Highcharts.Chart({
+    chart: { renderTo: 'showhighChartContainer' },
+    title: { text: 'Sales Against Goal' },
+    xAxis: { type: 'name' },
+
+    yAxis: {
+      title: { text: 'Dollars' }
+    },
+
+    series: [{
+      name: "Sales",
+      type: 'column',    	
+      data: <%= [@graph.sales_goal.to_f] %>
+    },
+    {
+      name: "Goal",
+      type: 'column',    	
+      data: <%= [@graph.sales.to_f] %>
+    }]    
+  });
+});
+</script>
+
+

@@ -2,6 +2,7 @@ class GraphsController < ApplicationController
 
 def index
 	@graphs = Graph.all.order("id DESC").all
+	@charts = Graph.all
 end
 
 def new
