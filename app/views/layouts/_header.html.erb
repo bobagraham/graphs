@@ -21,12 +21,16 @@
               </ul>
               <div class="collapse navbar-collapse navbar-right" role="">
               <ul class="nav navbar-nav">
-                <!-- <li class="disabled"><a href="#">Link</a></li> -->
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings<b class="caret"></b></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">My Profile</a></li>
-                    <li><a href="#">Logout</a></li>
+
+              <% if user_signed_in? %>
+              <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li class="inactive"><%= link_to "Settings", edit_user_registration_path %></li>
+                            <li class="inactive"><li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                          </ul>
+                        </li>                             
+                   <% end %>                     
                   </ul>
                 </li>
               </ul>                      
