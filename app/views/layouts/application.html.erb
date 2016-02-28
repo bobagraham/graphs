@@ -13,7 +13,6 @@
 <body>
 
 <body style="background-color: rgb(241, 242, 246);">
-	<div class="container">
 
 <% if user_signed_in? %>
 <%= render 'layouts/header' %>
@@ -24,7 +23,6 @@
      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
 <% end %>
 
-	</div>
 </body>
 
 </body>

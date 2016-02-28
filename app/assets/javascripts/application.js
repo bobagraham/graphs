@@ -17,4 +17,14 @@
 //= require bootflat/icheck.min.js
 //= require bootflat/jquery.fs.selecter.min.js
 //= require bootflat/jquery.fs.stepper.min.js
+//= require colorfulflat/bootstrap.js
+//= require colorfulflat/bootstrap.min.js
+//= require colorfulflat/default.js
+//= require colorfulflat/jquery-1.9.1.min.js
+//= require colorfulflat/jquery.easing-1.3.min.js
+//= require colorfulflat/jquery.easing.1.3.js
+//= require colorfulflat/jquery.scrollTo-1.4.3.1-min.js
+//= require colorfulflat/my_js.js
+//= require colorfulflat/npm.js
 //= require_tree .
+
